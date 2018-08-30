@@ -1,6 +1,8 @@
 # django-29673-test-case
 Test case for Django ticket #29673.
 
+First, add `public.localhost` to your hosts file.
+
 Run the following:
 ```
 pipenv install
