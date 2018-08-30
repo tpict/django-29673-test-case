@@ -25,6 +25,7 @@ SECRET_KEY = "s%@enno1zi0awzcbqntacb_9t64y5y7^1ngk9w_&&t74wxu((4"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -36,8 +37,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django29673.base",
-    "django29673.public",
+    "django29673.primary",
+    "django29673.secondary",
 ]
 
 MIDDLEWARE = [
@@ -48,7 +49,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "django29673.base.middleware.MultipleDomainMiddleware",
+    "django29673.primary.middleware.MultipleDomainMiddleware",
 ]
 
 ROOT_URLCONF = "django29673.urls"
@@ -114,8 +115,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = "/static/"
-
-PUBLIC_DOMAIN = "public.localhost"
-PUBLIC_URLCONF = "django29673.public.urls"
-
-ALLOWED_HOSTS = ["localhost", PUBLIC_DOMAIN]

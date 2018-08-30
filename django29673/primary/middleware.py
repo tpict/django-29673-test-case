@@ -15,9 +15,8 @@ class MultipleDomainMiddleware(object):
     def process_request(self, request):
         """Assign the urlconf for the requested domain.
         """
-        host = request.get_host()
-        if host == settings.PUBLIC_DOMAIN:
-            request.urlconf = settings.PUBLIC_URLCONF
+        if request.path.split("/")[1] == "secondary":
+            request.urlconf = "django29673.secondary.urls"
 
         return self.get_response(request)
 
