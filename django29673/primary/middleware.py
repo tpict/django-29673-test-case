@@ -3,7 +3,11 @@ from django.urls import set_urlconf
 
 
 class MultipleDomainMiddleware(object):
-    """Middleware for delivering different urlconfs for different domains.
+    """Middleware for delivering different urlconfs for different endpoints.
+
+    In a production setting, I'm using something like this to manage serving
+    multiple domains from a single webserver. This example just uses different
+    endpoints for ease of testing.
     """
 
     def __init__(self, get_response):
@@ -13,7 +17,7 @@ class MultipleDomainMiddleware(object):
         return self.process_request(request)
 
     def process_request(self, request):
-        """Assign the urlconf for the requested domain.
+        """Assign the urlconf for the requested endpoint.
         """
         if request.path.split("/")[1] == "secondary":
             request.urlconf = "django29673.secondary.urls"
